@@ -12,7 +12,7 @@ class CitiesViewModel(private val repository: CitiesRepository) : ViewModel() {
     private val disposable = CompositeDisposable()
     private val citiesSubject = PublishSubject.create<List<String>>()
 
-    fun fetchCities(city: String?) {
+    fun fetchCities(city: String? = null) {
         disposable.add(
             repository.fetchCities(city)
                 .observeOn(AndroidSchedulers.mainThread())
